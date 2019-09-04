@@ -1,0 +1,34 @@
+" General Settings
+set encoding=utf-8 " utf-8 encoding
+set ttyfast " send more characters at a time
+set autoread " reload if file changed externally
+
+syntax on " enable syntax highlighting
+set autoindent " auto indent
+set smartindent " syntax aware indent
+filetype plugin indent on " filetype detection, plugin, and indent
+
+" Tabs vs Spaces
+set tabstop=4 " number of visual spaces per tab
+set softtabstop=4 " number of spaces in tab when editing
+set shiftwidth=4 " number of columns to indent
+set expandtab " spaces to indent
+
+" The Aesthetic
+set background=dark " dark terminals
+set t_Co=256 " 256 Colors
+set t_ut=
+colorscheme afterglow  
+
+set ruler " cursor location in status bar
+set number " show line numbers
+set title " set terminal title
+set laststatus=2 " Show status bar always
+set visualbell " No more bells!
+
+set list " enable showing whitespace
+set listchars=tab:»\ ,trail:· " tabs and trailing spaces characters
+set showmatch " highlight matching [{()}]
+
+" Controls
+set backspace=indent,eol,start " allow backspacing over everything.
