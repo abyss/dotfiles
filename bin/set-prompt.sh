@@ -27,12 +27,12 @@ __set_bash_ps1() {
     local HOST='\h'
     local DIR='\w'
 
-    local GIT_PROMPT='$(__git_ps1 " %s")'
+    local GIT_PROMPT='$(__git_ps1 "(%s) ")'
 
     local TERM_TITLE="${USER}@${HOST} ${DIR}"
-    local PROMPT="${LGREEN}${USER}${GREEN}@${HOST} ${YELLOW}${DIR}${CYAN}${GIT_PROMPT} ${RESET}$ "
+    local PROMPT="${LPURPLE}${USER}${PURPLE}@${HOST} ${YELLOW}${DIR} ${CYAN}${GIT_PROMPT}${RESET}$"
 
-    export PS1="${TITLE_START}${TERM_TITLE}${TITLE_END}${PROMPT}"
+    export PS1="${TITLE_START}${TERM_TITLE}${TITLE_END}${PROMPT} "
 }
 
 __set_bash_ps1
