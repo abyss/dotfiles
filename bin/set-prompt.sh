@@ -1,5 +1,9 @@
 #!/bin/bash
 
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+
 source ~/bin/git-prompt.sh
 
 __set_bash_ps1() {
@@ -32,7 +36,7 @@ __set_bash_ps1() {
     local TERM_TITLE="${USER}@${HOST} ${DIR}"
     local PROMPT="${LPURPLE}${USER}${PURPLE}@${HOST} ${YELLOW}${DIR} ${CYAN}${GIT_PROMPT}${RESET}$"
 
-    export PS1="${TITLE_START}${TERM_TITLE}${TITLE_END}${PROMPT} "
+    PS1="${TITLE_START}${TERM_TITLE}${TITLE_END}${PROMPT} "
 }
 
 __set_bash_ps1

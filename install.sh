@@ -36,17 +36,20 @@ __install_dotfiles() {
         printf "~/bin already directory, skipping\n"
     fi
 
-    # Move all files from bin into ~/bin
+    # symlink bin files
     printf "${CYAN}### ${LCYAN}Creating all ~/bin symlinks${RESET}\n"
     ln -sfnv ${SCRIPTPATH}/bin/* ~/bin/
 
+    # symlink bash files
     printf "${CYAN}### ${LCYAN}Creating bash symlinks${RESET}\n"
     ln -sfnv ${SCRIPTPATH}/.bash_aliases ~/.bash_aliases
     ln -sfnv ${SCRIPTPATH}/.bashrc ~/.bashrc
 
+    # symlink vim files
     printf "${CYAN}### ${LCYAN}Creating vim symlink${RESET}\n"
     ln -sfnv ${SCRIPTPATH}/.vim ~/.vim
 
+    # create ~/.system_aliases if it doesn't exist
     printf "${CYAN}### ${LCYAN}Creating ~/.system_aliases${RESET}\n"
 
     if [ ! -f ~/.system_aliases ]; then
@@ -56,8 +59,20 @@ __install_dotfiles() {
         printf "~/.system_aliases already exists, skipping\n"
     fi
 
-    printf "${CYAN}!!! ${GREEN}Unless there are any errors above, installed successfully! ${CYAN}!!!${RESET}\n"
-    printf "${CYAN}### ${GREEN}Run \"source ~/.bashrc\" to see the changes.${RESET}\n"
+    # set git config --global options
+    printf "${CYAN}### ${LCYAN}git config options${RESET}\n"
+    printf "git config --global core.autocrlf input\n"
+    git config --global core.autocrlf input
+
+    # check if git config --global user.email / user.name are set
+    local GIT_USER_NAME=`git config --global user.name`
+    local GIT_USER_EMAIL=`git config --global user.email`
+    if [ -z "$GIT_USER_NAME" ] || [ -z "$GIT_USER_EMAIL" ]; then
+        printf "${CYAN}!!! ${YELLOW}You should run \"git config --global user.name\" and \"git config --global user.email\" to set your git user info ${CYAN}!!!${RESET}\n"
+    fi
+
+    printf "${CYAN}### ${GREEN}Unless there are any errors above, installed successfully! ${CYAN}!!!${RESET}\n"
+    printf "${CYAN}!!! ${YELLOW}Run \"source ~/.bashrc\" to see the changes.${RESET}\n"
 }
 
 __install_dotfiles

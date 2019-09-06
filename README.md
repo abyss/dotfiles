@@ -13,4 +13,5 @@ My personal dotfiles repository. Feel free to modify for your own use.
 2) Symlink all files in `dotfiles/bin` into `~/bin`
 3) Symlink `.bash_aliases` and `.bashrc`
 4) Symlink `.vim` directory
-4) Create `~/.system_aliases` if it does not already exist
+5) Create `~/.system_aliases` if it does not already exist
+6) Configure git globally to the settings in `install.sh`
