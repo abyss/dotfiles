@@ -29,10 +29,9 @@ __set_bash_ps1() {
 
     local GIT_PROMPT='$(__git_ps1 " %s")'
 
-    # TITLEPREFIX is used in MINGW/Git Bash
     local TERM_TITLE="${USER}@${HOST} ${DIR}"
-    local PROMPT="${GREEN}${USER}@${HOST} ${YELLOW}${DIR}${CYAN}${GIT_PROMPT} ${RESET}$ "
-    
+    local PROMPT="${LGREEN}${USER}${GREEN}@${HOST} ${YELLOW}${DIR}${CYAN}${GIT_PROMPT} ${RESET}$ "
+
     export PS1="${TITLE_START}${TERM_TITLE}${TITLE_END}${PROMPT}"
 }
 

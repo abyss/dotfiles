@@ -68,8 +68,14 @@ if ! shopt -oq posix; then
 fi
 
 # Custom Additions
+
+# System Specific, Non-Git Tracked Aliases
+if [ -f ~/.system_aliases ]; then
+    . ~/.system_aliases
+fi
+
 export EDITOR="vim" # default to Vim
 
-export PATH=$HOME/bin:$PATH # ~/bin in path
+export PATH="$HOME/bin:$PATH" # ~/bin in path
 
 source ~/bin/set-prompt.sh

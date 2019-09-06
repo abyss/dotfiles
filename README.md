@@ -10,5 +10,7 @@ My personal dotfiles repository. Feel free to modify for your own use.
 
 ### What `install.sh` does
 1) Create `~/bin` directory if it does not already exist.
-2) Copy all files from `dotfiles/bin` into `~/bin`
-3) Create a symlink for `.bash_aliases`, `.bashrc`, and `.vim` directory
+2) Symlink all files in `dotfiles/bin` into `~/bin`
+3) Symlink `.bash_aliases` and `.bashrc`
+4) Symlink `.vim` directory
+4) Create `~/.system_aliases` if it does not already exist
