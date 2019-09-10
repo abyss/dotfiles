@@ -79,3 +79,14 @@ export EDITOR="vim" # default to Vim
 export PATH="$HOME/bin:$PATH" # ~/bin in path
 
 source ~/bin/set-prompt.sh
+
+if [ "$OSTYPE" = "msys" ]; then
+    # When using Windows, FORCE_COLOR (mostly for node-chalk)
+    # and setup the winpty aliases.
+
+    export FORCE_COLOR=1
+    alias node='winpty node.exe'
+    alias python='winpty python.exe'
+    alias py='winpty py.exe'
+    alias php='winpty php.exe'
+fi
