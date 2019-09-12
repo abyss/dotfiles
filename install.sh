@@ -47,7 +47,15 @@ __install_dotfiles() {
 
     # symlink vim files
     printf "${CYAN}### ${LCYAN}Creating vim symlink${RESET}\n"
-    ln -sfnv ${SCRIPTPATH}/.vim ~/.vim
+    if [ -d ~/.vim ] && [ ! -L ~/.vim ]; then
+        printf "${RED}!!! ~/vim exists and can't be symlinked. If you want these vim settings, delete it and rerun this script.${RESET}\n"
+    else
+        ln -sfnv ${SCRIPTPATH}/.vim ~/.vim
+    fi
+
+    if [ -e ~/.vimrc ]; then
+        printf "${CYAN}!!! ${YELLOW}~/.vimrc exists and will take precedence. If you want to use these vim settings, delete it.${RESET}\n"
+    fi
 
     # create ~/.system_aliases if it doesn't exist
     printf "${CYAN}### ${LCYAN}Creating ~/.system_aliases${RESET}\n"
