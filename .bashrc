@@ -76,7 +76,7 @@ fi
 
 export EDITOR="vim" # default to Vim
 
-export PATH="$HOME/bin:$PATH" # ~/bin in path
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH" # ~/bin and ~/.local/bin in path
 
 source ~/bin/set-prompt.sh
 
