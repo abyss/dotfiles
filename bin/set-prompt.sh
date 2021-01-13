@@ -5,6 +5,8 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 
 source ~/bin/git-prompt.sh
+source ~/bin/terraform-prompt.sh
+source ~/bin/aws-prompt.sh
 
 __set_bash_ps1() {
     local RESET='\[\033[0m\]'
@@ -30,13 +32,22 @@ __set_bash_ps1() {
     local USER='\u'
     local HOST='\h'
     local DIR='\w'
+    local TIME='\t'
 
-    local GIT_PROMPT='$(__git_ps1 "(%s) ")'
+    local TERM_TITLE="${TITLE_START}${USER}@${HOST} ${DIR}${TITLE_END}"
 
-    local TERM_TITLE="${USER}@${HOST} ${DIR}"
-    local PROMPT="${LPURPLE}${USER}${PURPLE}@${HOST} ${YELLOW}${DIR} ${CYAN}${GIT_PROMPT}${RESET}$"
+    local HOST_PROMPT="${LPURPLE}${USER}${PURPLE}@${HOST}${RESET}"
+    local DIR_PROMPT="${YELLOW}${DIR}${RESET}"
 
-    PS1="${TITLE_START}${TERM_TITLE}${TITLE_END}${PROMPT} "
+    # These need to be escaped so they don't evaluate the function on first load
+    # however, the color codes do need to be evaluated
+    local GIT_PROMPT="\$(__git_ps1 \"${CYAN}git:(${LCYAN}%s${CYAN})${RESET} \")"
+    local TF_PROMPT="\$(__terraform_workspace \"${PURPLE}tf:(${LPURPLE}%s${PURPLE})${RESET} \")"
+    local AWS_PROMPT="\$(__aws_profile \"${GREEN}aws:(${LGREEN}%s${GREEN})${RESET} \")"
+
+    local PROMPT="\n${HOST_PROMPT} ${DIR_PROMPT} ${GIT_PROMPT}${TF_PROMPT}${AWS_PROMPT}\n${WHITE}$ ${RESET}"
+
+    PS1="${TERM_TITLE}${PROMPT}"
 }
 
 __set_bash_ps1
