@@ -45,7 +45,7 @@ __set_bash_ps1() {
     local TF_PROMPT="\$(__terraform_workspace \"${PURPLE}tf:(${LPURPLE}%s${PURPLE})${RESET} \")"
     local AWS_PROMPT="\$(__aws_profile \"${GREEN}aws:(${LGREEN}%s${GREEN})${RESET} \")"
 
-    local PROMPT="\n${HOST_PROMPT} ${DIR_PROMPT} ${GIT_PROMPT}${TF_PROMPT}${AWS_PROMPT}\n${WHITE}$ ${RESET}"
+    local PROMPT=$'\n'"${HOST_PROMPT} ${DIR_PROMPT} ${GIT_PROMPT}${TF_PROMPT}${AWS_PROMPT}"$'\n'"${WHITE}$ ${RESET}"
 
     PS1="${TERM_TITLE}${PROMPT}"
 }
