@@ -13,3 +13,8 @@ alias node-prod='export NODE_ENV=production'
 
 # aws cli
 alias awsid='aws sts get-caller-identity'
+
+# terraform and terragrunt
+alias tf='terraform'
+alias tg='terragrunt'
+

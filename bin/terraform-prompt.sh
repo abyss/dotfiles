@@ -1,3 +1,5 @@
+# inspiration / partial credit: https://github.com/amatellanes/terraform-workspace-prompt
+
 __terraform_workspace() {
     # preserve exit status
     local exit=$?
