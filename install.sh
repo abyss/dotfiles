@@ -57,6 +57,10 @@ __install_dotfiles() {
         printf "${CYAN}!!! ${YELLOW}~/.vimrc exists and will take precedence. To use these settings, delete it.${RESET}\n"
     fi
 
+    # symlink tflint files
+    ln -sfnv ${SCRIPTPATH}/.tflint.hcl ~/.tflint.hcl
+    ln -sfnv ${SCRIPTPATH}/.tflint.module.hcl ~/.tflint.module.hcl
+
     # create ~/.system_aliases if it doesn't exist
     printf "${CYAN}### ${LCYAN}Creating ~/.system_aliases${RESET}\n"
 
