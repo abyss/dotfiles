@@ -1,0 +1,55 @@
+# Scratch/Temporary Files
+*.localignore
+*.gitditch.*
+.gitditch/*
+
+# Folder view configuration files
+.DS_Store
+[Dd]esktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+## Windows Stuff - https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+
+# Dump file
+*.stackdump
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+## Mac Stuff - https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+
+# General
+.AppleDouble
+.LSOverride
+
+# Files that might appear on external disks
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk

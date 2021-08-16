@@ -71,6 +71,10 @@ __install_dotfiles() {
     printf "${CYAN}### ${LCYAN}git config options${RESET}\n"
     printf "git config --global core.autocrlf input\n"
     git config --global core.autocrlf input
+    git config --global pull.ff only
+
+    # symlink global gitignore file
+    ln -sfnv ${SCRIPTPATH}/linked.gitignore ~/.gitignore
 
     # check if git config --global user.email / user.name are set
     local GIT_USER_NAME=`git config --global user.name`
