@@ -75,6 +75,7 @@ __install_dotfiles() {
     printf "${CYAN}### ${LCYAN}git config options${RESET}\n"
     printf "git config --global core.autocrlf input\n"
     git config --global core.autocrlf input
+    printf "git config --global pull.ff only\n"
     git config --global pull.ff only
 
     # symlink global gitignore file

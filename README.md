@@ -1,3 +1,7 @@
+![License: MIT](https://img.shields.io/github/license/abyss/dotfiles?style=for-the-badge)
+![Uses git](https://img.shields.io/badge/uses-git-blue?style=for-the-badge)
+![Works on my machine](https://img.shields.io/badge/works%20on-my%20machine-red?style=for-the-badge)
+
 # Abyss' Dotfiles
 
 My personal dotfiles repository. Feel free to modify for your own use.
@@ -7,21 +11,29 @@ My personal dotfiles repository. Feel free to modify for your own use.
 If you intend to use this as a template for your dotfiles, and you are not me, I strongly suggest you do the following things to personalize it.
 
 1) :star: [this repo](https://github.com/abyss/dotfiles) on GitHub!
-2) **Remove or replace the authorized_keys with your own authorized_keys.** (these aren't installed by the script, only manually)
-3) *(Optional)* Inside `install.sh`, change the git config options
+2) **Remove or replace the authorized_keys with your own authorized_keys.** *These aren't installed by the script, they only exist for manual copying.*
+3) *(Optional)* Inside `install.sh`, change the git config options.
 4) *(Optional)* Change any other files to your liking.
 
 ## Setup
 
 1) `git clone https://github.com/abyss/dotfiles.git`
-2) `bash ./dotfiles/install.sh`
+2) *(Optional)* On Windows, see [Getting symlinks to work on Windows](#getting-symlinks-to-work-on-windows).
+3) `bash ./dotfiles/install.sh`
 > **Warning:** this will remove your current `~/.bashrc`, `~/.vim`, `~/.bash_aliases`, `~/.tflint.hcl`, `~/.tflint.module.hcl`, and `~/.gitignore`.
 
 ## Updating
 
-Most updates only need a `git pull`.
+Any existing files will be updated by a `git pull`.
 
-Changes to git config options or install process may be updated by executing `install.sh` again.
+Creation of new files, changes to git config options, and install process may be updated by executing `install.sh` again.
+
+## Getting symlinks to work on Windows
+
+If you are running the install on Windows, the symlinks will not work out of the box. To fix this, you need to do two things:
+
+1) Run Git Bash as Administrator
+2) Set the following environment variable first: `export MSYS=winsymlinks:nativestrict`
 
 ## Additional Notes
 1) The `~/bin` directory will be created if it does not already exist.
@@ -33,4 +45,3 @@ Changes to git config options or install process may be updated by executing `in
 7) git config global options are configured inside of `install.sh`, rather than by file.
 8) `install.sh` should be able to be run multiple times with no bad side effects.
 9) The `.ssh` directory includes an authorized_keys, but it is not managed automatically.
-10) **On Git Bash for Windows:** The symlinks will likely not work, the files will be copied instead. Run `install.sh` to force update the files.
