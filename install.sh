@@ -48,7 +48,7 @@ __install_dotfiles() {
     # symlink vim files
     printf "${CYAN}### ${LCYAN}Creating vim symlink${RESET}\n"
     if [ -d ~/.vim ] && [ ! -L ~/.vim ]; then
-        printf "${RED}!!! ~/vim exists and can't be symlinked. To use these settings, delete it and rerun this script.${RESET}\n"
+        printf "${RED}!!! ~/.vim exists and can't be symlinked. To use these settings, delete it and rerun this script.${RESET}\n"
     else
         ln -sfnv ${SCRIPTPATH}/.vim ~/.vim
     fi
