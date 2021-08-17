@@ -77,6 +77,8 @@ __install_dotfiles() {
     git config --global core.autocrlf input
     printf "git config --global pull.ff only\n"
     git config --global pull.ff only
+    printf "git config --global init.defaultBranch main\n"
+    git config --global init.defaultBranch main
 
     # symlink global gitignore file
     ln -sfnv ${SCRIPTPATH}/linked.gitignore ~/.gitignore
