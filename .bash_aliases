@@ -31,4 +31,4 @@ tfws () {
 alias tfdoc-gen='terraform-docs markdown document ./ >README.md'
 
 # tflint for modules
-alias tflint-mod='tflint --config="~/.tflint.module.hcl"'
+alias tflint-mod='tflint --config=$HOME/.tflint.module.hcl'
