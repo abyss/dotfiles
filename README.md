@@ -21,6 +21,7 @@ If you intend to use this as a template for your dotfiles, and you are not me, I
 2) *(Optional)* On Windows, see [Getting symlinks to work on Windows](#getting-symlinks-to-work-on-windows).
 3) `bash ./dotfiles/install.sh`
 > **Warning:** this will remove your current `~/.bashrc`, `~/.vim`, `~/.bash_aliases`, `~/.tflint.hcl`, `~/.tflint.module.hcl`, and `~/.gitignore`.
+4) *(Optional)* On MacOS, `brew bundle` will install the Brewfile contents.
 
 ## Updating
 
