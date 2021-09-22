@@ -1,0 +1,55 @@
+* text=auto eol=lf
+
+# Serialisation
+*.json text eol=lf
+*.toml text eol=lf
+*.xml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Scripts
+*.bash text eol=lf diff=bash
+*.fish text eol=lf
+*.sh text eol=lf diff=bash
+*.zsh text eol=lf
+*.ps1 text eol=lf
+*.py text eol=lf diff=python
+*.rb text eol=lf diff=ruby
+Dockerfile text eol=lf
+# Windows-specific line-ending
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Languages
+*.htm text eol=lf diff=html
+*.html text eol=lf diff=html
+*.css text eol=lf diff=css
+*.go text eol=lf diff=golang
+*.php text eol=lf diff=php
+*.tf text eol=lf
+*.hcl text eol=lf
+
+# Documents
+*.csv text eol=lf
+*.txt text eol=lf
+*.sql text eol=lf
+*.md text eol=lf diff=markdown
+*.pdf binary
+
+# Archives
+*.7z binary
+*.br binary
+*.gz binary
+*.tar binary
+*.zip binary
+
+# Graphics
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+# SVG treated as text by default.
+*.svg text eol=lf
+
+# Text files where line endings should be preserved
+*.patch -text
