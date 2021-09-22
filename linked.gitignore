@@ -1,6 +1,6 @@
 # Scratch/Temporary Files
 *.localignore
-*.gitditch.*
+*.gitditch
 .gitditch/*
 
 # Folder view configuration files
