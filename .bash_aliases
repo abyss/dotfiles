@@ -18,8 +18,18 @@ alias node-prod='export NODE_ENV=production'
 alias awsid='aws sts get-caller-identity'
 
 # terraform and terragrunt
-alias tf='terraform'
 alias tg='terragrunt'
+
+# .terraform-version file requirement when running tf
+tf() {
+    if [ ! -f .terraform-version ]; then
+        echo "You fell victim to one of the classic blunders!"
+        echo "(Missing .terraform-version file)"
+        (exit 1)
+    else
+        terraform $@
+    fi
+}
 
 # terraform workspace apply with var-file of same name
 tfws () {
@@ -32,3 +42,6 @@ alias tfdoc-gen='terraform-docs markdown document ./ >README.md'
 
 # tflint for modules
 alias tflint-mod='tflint --config=$HOME/.tflint.module.hcl'
+
+# Kubernetes
+alias k='kubectl'

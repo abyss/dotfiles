@@ -36,6 +36,7 @@ brew "tfsec"
 # k8s
 brew "kubernetes-cli"
 brew "helm"
+brew "k9s"
 
 # Fun
 brew "archey"
