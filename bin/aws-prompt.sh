@@ -3,7 +3,7 @@ __aws_profile() {
     local exit=$?
 
     local profile="${AWS_PROFILE:=default}"
-    if [ $profile == "default" ]; then
+    if [ "$profile" == "default" ]; then
         # Doesn't show AWS_PROFILE if unset/default
         return $exit
     else
