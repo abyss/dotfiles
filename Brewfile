@@ -19,6 +19,7 @@ brew "nvm"
 brew "go"
 brew "mysql-client"
 brew "pre-commit"
+brew "go-task/tap/go-task"
 
 # Ops Tools
 brew "ansible"
