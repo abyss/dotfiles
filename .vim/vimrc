@@ -18,7 +18,7 @@ set expandtab " spaces to indent
 set background=dark " dark terminals
 set t_Co=256 " 256 Colors
 set t_ut=
-colorscheme afterglow  
+colorscheme afterglow
 
 set ruler " cursor location in status bar
 set number " show line numbers
