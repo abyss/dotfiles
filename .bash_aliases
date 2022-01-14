@@ -17,6 +17,9 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
+# git
+alias git-changelog='git log --pretty="- %s"'
+
 # ansible trust-all-hosts
 alias ansible-hosts='ANSIBLE_HOST_KEY_CHECKING=false ansible all -m ping'
 
