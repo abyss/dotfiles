@@ -1,4 +1,5 @@
 ### Modified Ubuntu .bashrc 2019-04-09
+# shellcheck shell=bash
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -34,6 +35,7 @@ shopt -s checkwinsize
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
+    # shellcheck disable=SC2015
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
@@ -53,12 +55,14 @@ fi
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
+    # shellcheck source=/dev/null
     . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
+# shellcheck source=/dev/null
 if ! shopt -oq posix; then
     if [ -f /usr/share/bash-completion/bash_completion ]; then
         . /usr/share/bash-completion/bash_completion
@@ -71,6 +75,7 @@ fi
 
 # System Specific, Non-Git Tracked Aliases
 if [ -f ~/.system_aliases ]; then
+    # shellcheck source=/dev/null
     . ~/.system_aliases
 fi
 
@@ -78,6 +83,7 @@ export EDITOR="vim" # default to Vim
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH" # ~/bin and ~/.local/bin in path
 
+# shellcheck source=/dev/null
 source ~/bin/set-prompt.sh
 
 if [ "$OSTYPE" = "msys" ]; then
@@ -91,11 +97,13 @@ if [ "$OSTYPE" = "msys" ]; then
     alias php='winpty php.exe'
 elif [ "$OSTYPE" = "darwin20" ]; then
     # Mac OSX
+    # shellcheck disable=SC2155
     export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
+# shellcheck source=/dev/null
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# shellcheck source=/dev/null
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
