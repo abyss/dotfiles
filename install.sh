@@ -44,9 +44,10 @@ __install_dotfiles() {
         warning '~/.vimrc exists and will take precedence. To use these settings, delete it.'
     fi
 
-    # symlink tflint files
+    # symlink terraform files
     ln -sfnv ${SCRIPTPATH}/.tflint.hcl ~/.tflint.hcl
     ln -sfnv ${SCRIPTPATH}/.tflint.module.hcl ~/.tflint.module.hcl
+    ln -sfnv ${SCRIPTPATH}/.terraformrc ~/.terraformrc
 
     # create ~/.system_aliases if it doesn't exist
     header 'Creating ~/.system_aliases'
