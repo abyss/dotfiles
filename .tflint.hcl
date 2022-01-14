@@ -6,7 +6,7 @@ config {
 
 plugin "aws" {
   enabled = true
-  version = "0.6.0"
+  version = "0.11.0"
   source  = "github.com/terraform-linters/tflint-ruleset-aws"
 }
 
@@ -40,9 +40,9 @@ rule "terraform_typed_variables" {
   enabled = true
 }
 
-# "Disallow specifying a git or mercurial repository as a module source without pinning to a version"
+# Disallow specifying a git or mercurial repository as a module source without pinning to a version
 rule "terraform_module_pinned_source" {
-  enabled = false
+  enabled = true
 }
 
 # Disallow `terraform` declarations without require_version
