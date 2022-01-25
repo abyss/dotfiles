@@ -3,6 +3,9 @@
 *.gitditch
 .gitditch/*
 
+# ltex configuration (spell checking)
+.vscode/ltex.*
+
 # Folder view configuration files
 .DS_Store
 [Dd]esktop.ini
