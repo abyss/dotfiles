@@ -36,6 +36,8 @@ alias tg='terragrunt'
 alias tfmt='terraform fmt -recursive'
 alias tfia='tf init && tf apply'
 alias tfi='tf init'
+alias tfiu='tf init -upgrade'
+alias tgu='tf get -update'
 alias tfa='tf apply'
 alias tflock='terraform providers lock -platform=windows_amd64 -platform=darwin_amd64 -platform=linux_amd64 -platform=linux_arm64'
 
