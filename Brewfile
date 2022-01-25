@@ -27,12 +27,12 @@ brew "awscli"
 brew "saml2aws"
 
 # Terraform
+brew "terraform", link: false # Unlinked so it doesn't conflict with tfenv
 brew "tfenv"
 brew "terraform-docs"
 brew "tflint"
 brew "tfsec"
-# Requires terraform which conflicts with tfenv
-# brew "terragrunt"
+brew "terragrunt"
 
 # k8s
 brew "kubernetes-cli"
