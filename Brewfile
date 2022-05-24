@@ -3,6 +3,7 @@ cask "visual-studio-code"
 cask "iterm2"
 cask "mono-mdk"
 cask "powershell"
+cask "amethyst"
 
 # General / Utility
 brew "coreutils" # Use GNU coreutils instead of BSD utils
@@ -35,10 +36,10 @@ brew "tfsec"
 brew "terragrunt"
 
 # k8s
-brew "kubernetes-cli"
+brew "kubectl"
 brew "helm"
 brew "k9s"
-brew "kubectx"
+brew "kubectx" # kubectx and kubens
 
 # Fun
 brew "archey"

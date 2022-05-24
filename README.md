@@ -40,7 +40,7 @@ If you are running the install on Windows, the symlinks will not work out of the
 1) The `~/bin` directory will be created if it does not already exist.
 2) `.bash_aliases` and `.bashrc` will be symlinked into your home directory.
 3) `.vim` will be symlinked into your home directory.
-4) `.tflint.hcl` and `.tflint.module.hcl` will be symlinked into your home directory.
+4) `.tflint.hcl` will be symlinked into your home directory.
 5) `linked.gitignore` will be symlinked as `~/.gitignore` into your home directory.
 6) `~/.system_aliases` will be created if it does not already exist. You can put system-specific aliases here that you do not want to be tracked by git.
 7) git config global options are configured inside of `install.sh`, rather than by file.

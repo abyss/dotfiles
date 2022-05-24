@@ -34,15 +34,22 @@ alias awsid='aws sts get-caller-identity'
 # terraform and terragrunt
 alias tg='terragrunt'
 alias tfmt='terraform fmt -recursive'
-alias tfia='tf init && tf apply'
 alias tfi='tf init'
+alias tfa='tf apply'
+alias tfia='tf init && tf apply'
+alias tfp='tf plan'
+alias tfip='tf init && tf plan'
 alias tfiu='tf init -upgrade'
 alias tgu='tf get -update'
-alias tfa='tf apply'
-alias tflock='terraform providers lock -platform=windows_amd64 -platform=darwin_amd64 -platform=linux_amd64 -platform=linux_arm64'
+alias tfw='tf workspace'
+
+# calling this twice fixes some edge cases...
+alias tflock='terraform providers lock && terraform providers lock -platform=windows_amd64 -platform=darwin_amd64 -platform=darwin_arm64 -platform=linux_amd64 -platform=linux_arm64'
+# This one is for projects with the `template` provider. Not supported on M1 Mac
+alias tflock-template='terraform providers lock && terraform providers lock -platform=windows_amd64 -platform=darwin_amd64 -platform=linux_amd64 -platform=linux_arm64'
 
 # .terraform-version file requirement when running tf
-tf() {
+tf () {
   if [ ! -f .terraform-version ]; then
     echo "You fell victim to one of the classic blunders!"
     echo "(Missing .terraform-version file)"
@@ -53,7 +60,7 @@ tf() {
 }
 
 # terraform workspace apply with var-file of same name
-tfws () {
+tfwsv () {
   local current_tf_workspace
   current_tf_workspace=$(terraform workspace show 2>/dev/null)
   tf "$@" -var-file "$current_tf_workspace.tfvars"
@@ -61,9 +68,6 @@ tfws () {
 
 # tfdocs generate current folder
 alias tfdoc-gen='terraform-docs markdown document ./ >README.md'
-
-# tflint for modules
-alias tflint-mod='tflint --config=$HOME/.tflint.module.hcl'
 
 # clean up after terraform - these files get big over time!
 alias tf-clean='find . -name ".terraform" -type d -print0 | xargs -0 rm -rf'
