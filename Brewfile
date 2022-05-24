@@ -28,12 +28,11 @@ brew "awscli"
 brew "saml2aws"
 
 # Terraform
-brew "terraform", link: false # Unlinked so it doesn't conflict with tfenv
 brew "tfenv"
 brew "terraform-docs"
 brew "tflint"
 brew "tfsec"
-brew "terragrunt"
+brew "terragrunt", args: ["ignore-dependencies"]
 
 # k8s
 brew "kubectl"
