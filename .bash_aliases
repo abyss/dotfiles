@@ -48,6 +48,13 @@ alias tflock='terraform providers lock && terraform providers lock -platform=win
 # This one is for projects with the `template` provider. Not supported on M1 Mac
 alias tflock-template='terraform providers lock && terraform providers lock -platform=windows_amd64 -platform=darwin_amd64 -platform=linux_amd64 -platform=linux_arm64'
 
+# M1 Terraform Helper
+alias m1-tf='m1-terraform-provider-helper install'
+alias m1-lock='m1-terraform-provider-helper lockfile upgrade'
+
+# Find Terraform Local States
+alias tf-local-state='find . -type f -name "terraform.tfstate" -not -path "*/.terraform/*"'
+
 # .terraform-version file requirement when running tf
 tf () {
   if [ ! -f .terraform-version ]; then
@@ -71,6 +78,7 @@ alias tfdoc-gen='terraform-docs markdown document ./ >README.md'
 
 # clean up after terraform - these files get big over time!
 alias tf-clean='find . -name ".terraform" -type d -print0 | xargs -0 rm -rf'
+alias ic-clean='find . -name ".infracost" -type d -print0 | xargs -0 rm -rf'
 
 # Kubernetes
 alias k='kubectl'

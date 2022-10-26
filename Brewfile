@@ -20,7 +20,8 @@ brew "nvm"
 brew "go"
 brew "mysql-client"
 brew "pre-commit"
-brew "go-task/tap/go-task"
+tap "go-task/tap"
+brew "gh" # GitHub CLI
 
 # Ops Tools
 brew "ansible"
@@ -41,6 +42,6 @@ brew "k9s"
 brew "kubectx" # kubectx and kubens
 
 # Fun
-brew "archey"
+brew "archey4"
 brew "cowsay"
 brew "fortune"

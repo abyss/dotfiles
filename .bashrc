@@ -73,12 +73,6 @@ fi
 
 # Custom Additions
 
-# System Specific, Non-Git Tracked Aliases
-if [ -f ~/.system_aliases ]; then
-    # shellcheck source=/dev/null
-    . ~/.system_aliases
-fi
-
 export EDITOR="vim" # default to Vim
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH" # ~/bin and ~/.local/bin in path
@@ -96,8 +90,13 @@ if [ "$OSTYPE" = "msys" ]; then
     alias py='winpty py.exe'
     alias php='winpty php.exe'
 elif [ "$OSTYPE" = "darwin20" ]; then
-    # Mac OSX
+    # Mac OSX Intel
     # shellcheck disable=SC2155
+    export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+elif [ "$OSTYPE" = "darwin21" ]; then
+    # Mac OSX Arm
+    # shellcheck disable=SC2155
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
@@ -107,6 +106,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 # shellcheck source=/dev/null
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# Homebrew NVM Versions
+# shellcheck source=/dev/null
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+# shellcheck source=/dev/null
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Alias for sourcing AWSP
-alias awsp="source _awspp"
+# System Specific, Non-Git Tracked Aliases
+if [ -f ~/.system_aliases ]; then
+    # shellcheck source=/dev/null
+    . ~/.system_aliases
+fi

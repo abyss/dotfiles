@@ -1,10 +1,13 @@
 # Scratch/Temporary Files
 *.localignore
 *.gitditch
-.gitditch/*
+.gitditch/
 
 # ltex configuration (spell checking)
 .vscode/ltex.*
+
+# Infracost
+.infracost/
 
 # Folder view configuration files
 .DS_Store
