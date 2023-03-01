@@ -89,15 +89,23 @@ if [ "$OSTYPE" = "msys" ]; then
     alias python='winpty python.exe'
     alias py='winpty py.exe'
     alias php='winpty php.exe'
-elif [ "$OSTYPE" = "darwin20" ]; then
+fi
+
+if [ -s "/usr/local/bin/brew" ]; then
     # Mac OSX Intel
     # shellcheck disable=SC2155
     export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-elif [ "$OSTYPE" = "darwin21" ]; then
+    export PATH="$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH"
+    export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+fi
+
+if [ -s "/opt/homebrew/bin/brew" ]; then
     # Mac OSX Arm
     # shellcheck disable=SC2155
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH"
+    export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
 fi
 
 # NVM
@@ -111,6 +119,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 # shellcheck source=/dev/null
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 # System Specific, Non-Git Tracked Aliases
 if [ -f ~/.system_aliases ]; then
