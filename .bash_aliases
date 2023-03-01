@@ -76,6 +76,9 @@ tfwsv () {
 # tfdocs generate current folder
 alias tfdoc-gen='terraform-docs markdown document ./ >README.md'
 
+# Authenticate old versions of TF with AWS SSO
+alias sso-tf-login='. ~/bin/sso-tf-login.sh'
+
 # clean up after terraform - these files get big over time!
 alias tf-clean='find . -name ".terraform" -type d -print0 | xargs -0 rm -rf'
 alias ic-clean='find . -name ".infracost" -type d -print0 | xargs -0 rm -rf'
