@@ -36,10 +36,12 @@ brew "tfsec"
 brew "terragrunt", args: ["ignore-dependencies"]
 
 # k8s
-brew "kubectl"
-brew "helm"
+tap "little-angry-clouds/homebrew-my-brews"
+brew "kbenv" # kubectl
+brew "helmenv" # helm
+
 brew "k9s"
-brew "kubectx" # kubectx and kubens
+brew "kubectx", args: ["ignore-dependencies"] # kubectx and kubens
 
 # Fun
 brew "archey4"
