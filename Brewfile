@@ -20,13 +20,17 @@ brew "nvm"
 brew "go"
 brew "mysql-client"
 brew "pre-commit"
-tap "go-task/tap"
+brew "go-task"
 brew "gh" # GitHub CLI
 
 # Ops Tools
 brew "ansible"
 brew "awscli"
 brew "saml2aws"
+
+# AWS
+tap "tedsmitt/ecsgo"
+brew "ecsgo" # https://github.com/tedsmitt/ecsgo
 
 # Terraform
 brew "tfenv"
