@@ -97,6 +97,7 @@ if [ -s "/usr/local/bin/brew" ]; then
     export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH"
     export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+    export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 fi
 
 if [ -s "/opt/homebrew/bin/brew" ]; then
@@ -106,6 +107,7 @@ if [ -s "/opt/homebrew/bin/brew" ]; then
     export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH"
     export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+    export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 fi
 
 # NVM

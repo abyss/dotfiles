@@ -13,6 +13,7 @@ brew "thefuck"
 brew "jq"
 brew "grep"
 brew "gawk"
+brew "gnu-sed"
 brew "dos2unix"
 
 # Developer Tools

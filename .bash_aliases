@@ -18,6 +18,8 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
+alias lspath="tr ':' '\n' <<< \$PATH"
+
 # git
 alias git-changelog='git log --pretty="- %s"'
 
@@ -67,7 +69,7 @@ tf () {
 }
 
 # terraform workspace apply with var-file of same name
-tfwsv () {
+tfwsa () {
   local current_tf_workspace
   current_tf_workspace=$(terraform workspace show 2>/dev/null)
   tf "$@" -var-file "$current_tf_workspace.tfvars"
