@@ -3,6 +3,9 @@
 *.gitditch
 .gitditch/
 
+# Vim swap files
+.*.swp
+
 # ltex configuration (spell checking)
 .vscode/ltex.*
 
