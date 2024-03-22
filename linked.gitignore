@@ -1,7 +1,10 @@
 # Scratch/Temporary Files
 *.localignore
+*.localignore.*
 *.gitditch
+*.gitditch.*
 .gitditch/
+# .marked
 
 # Vim swap files
 .*.swp
