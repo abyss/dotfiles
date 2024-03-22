@@ -87,3 +87,6 @@ alias ic-clean='find . -name ".infracost" -type d -print0 | xargs -0 rm -rf'
 
 # Kubernetes
 alias k='kubectl'
+
+# Utility
+alias ungron="gron --ungron"

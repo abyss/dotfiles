@@ -11,6 +11,7 @@ brew "git" # Use standard git, not Apple git
 brew "trash"
 brew "thefuck"
 brew "jq"
+brew "gron"
 brew "grep"
 brew "gawk"
 brew "gnu-sed"
