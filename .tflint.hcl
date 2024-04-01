@@ -1,28 +1,33 @@
 # TFLint Rules for Root Module / Project
-# See rule details here: https://github.com/terraform-linters/tflint/tree/master/docs/rules
-
 config {
-  module = true # Module Inspection
+  call_module_type = "all" # Module inspection
+  format = "compact"
 }
 
+# See Terraform Ruleset here:
+# https://github.com/terraform-linters/tflint/tree/master/docs/rules
 plugin "terraform" {
   enabled = true
 
   preset = "all"
 }
 
-plugin "aws" {
-  enabled = true
-  version = "0.18.0"
-  source  = "github.com/terraform-linters/tflint-ruleset-aws"
-}
-
 # Enforces naming conventions
+# Disabled because we don't follow it in most projects
 rule "terraform_naming_convention" {
   enabled = false
 }
 
 # Ensure that a module complies with the Terraform Standard Module Structure
+# Disabled because while it's a good recommendation, it doesn't always fit the need
 rule "terraform_standard_module_structure" {
   enabled = false
+}
+
+# See AWS Ruleset here:
+# https://github.com/terraform-linters/tflint-ruleset-aws/blob/master/docs/rules/
+plugin "aws" {
+  enabled = true
+  version = "0.30.0"
+  source  = "github.com/terraform-linters/tflint-ruleset-aws"
 }
