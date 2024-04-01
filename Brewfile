@@ -3,7 +3,6 @@ cask "visual-studio-code"
 cask "iterm2"
 cask "mono-mdk"
 cask "powershell"
-cask "amethyst"
 
 # General / Utility
 brew "coreutils" # Use GNU coreutils instead of BSD utils
@@ -35,11 +34,11 @@ tap "tedsmitt/ecsgo"
 brew "ecsgo" # https://github.com/tedsmitt/ecsgo
 
 # Terraform
-brew "tfenv"
+tap "tofuutils/tap"
+brew "tenv"
 brew "terraform-docs"
 brew "tflint"
 brew "tfsec"
-brew "terragrunt", args: ["ignore-dependencies"]
 
 # k8s
 tap "little-angry-clouds/homebrew-my-brews"

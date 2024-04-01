@@ -57,14 +57,16 @@ alias m1-lock='m1-terraform-provider-helper lockfile upgrade'
 # Find Terraform Local States
 alias tf-local-state='find . -type f -name "terraform.tfstate" -not -path "*/.terraform/*"'
 
-# .terraform-version file requirement when running tf
+# Version file requirement when using TF
 tf () {
-  if [ ! -f .terraform-version ]; then
-    echo "You fell victim to one of the classic blunders!"
-    echo "(Missing .terraform-version file)"
-    (exit 1)
-  else
+  if [ -f .opentofu-version ]; then
+    tofu "$@"
+  elif [ -f .terraform-version ]; then
     terraform "$@"
+  else
+    echo "You fell victim to one of the classic blunders!"
+    echo "(Missing .opentofu-version or .terraform-version file)"
+    (exit 1)
   fi
 }
 
