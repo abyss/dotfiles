@@ -75,8 +75,6 @@ fi
 
 export EDITOR="vim" # default to Vim
 
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH" # ~/bin and ~/.local/bin in path
-
 # shellcheck source=/dev/null
 source ~/bin/set-prompt.sh
 
@@ -128,3 +126,5 @@ if [ -f ~/.system_aliases ]; then
     # shellcheck source=/dev/null
     . ~/.system_aliases
 fi
+
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH" # ~/bin and ~/.local/bin in path
