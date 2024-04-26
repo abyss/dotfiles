@@ -5,11 +5,10 @@ config {
 }
 
 # See Terraform Ruleset here:
-# https://github.com/terraform-linters/tflint/tree/master/docs/rules
+# https://github.com/terraform-linters/tflint-ruleset-terraform/tree/main/docs/rules/
 plugin "terraform" {
   enabled = true
-
-  preset = "all"
+  preset  = "all"
 }
 
 # Enforces naming conventions
