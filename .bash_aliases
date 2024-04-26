@@ -64,7 +64,7 @@ tf () {
   elif [ -f .terraform-version ]; then
     terraform "$@"
   else
-    echo "You fell victim to one of the classic blunders!"
+    fortune ~/Code/abyss/fortune-failures/failures
     echo "(Missing .opentofu-version or .terraform-version file)"
     (exit 1)
   fi
