@@ -1,5 +1,6 @@
 ### Modified Ubuntu .bashrc 2019-04-09
 # shellcheck shell=bash
+# shellcheck disable=SC1090,SC1091,SC2155
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -55,14 +56,12 @@ fi
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    # shellcheck source=/dev/null
     . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-# shellcheck source=/dev/null
 if ! shopt -oq posix; then
     if [ -f /usr/share/bash-completion/bash_completion ]; then
         . /usr/share/bash-completion/bash_completion
@@ -75,7 +74,6 @@ fi
 
 export EDITOR="vim" # default to Vim
 
-# shellcheck source=/dev/null
 source ~/bin/set-prompt.sh
 
 if [ "$OSTYPE" = "msys" ]; then
@@ -91,7 +89,6 @@ fi
 
 if [ -s "/usr/local/bin/brew" ]; then
     # Mac OSX Intel
-    # shellcheck disable=SC2155
     export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH"
     export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
@@ -106,24 +103,22 @@ if [ -s "/opt/homebrew/bin/brew" ]; then
     export PATH="$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH"
     export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
     export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+
+    export BASH_COMPLETION_COMPAT_DIR="/opt/homebrew/etc/bash_completion.d"
+    [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-# shellcheck source=/dev/null
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# shellcheck source=/dev/null
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-# Homebrew NVM Versions
-# shellcheck source=/dev/null
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-# shellcheck source=/dev/null
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# Homebrew NVM Versions
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # System Specific, Non-Git Tracked Aliases
 if [ -f ~/.system_aliases ]; then
-    # shellcheck source=/dev/null
     . ~/.system_aliases
 fi
 

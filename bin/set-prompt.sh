@@ -7,6 +7,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 source ~/bin/git-prompt.sh
 source ~/bin/terraform-prompt.sh
 source ~/bin/aws-prompt.sh
+source ~/bin/venv-prompt.sh
 
 __set_bash_ps1() {
     local RESET='\[\033[0m\]'
@@ -44,8 +45,9 @@ __set_bash_ps1() {
     local GIT_PROMPT="\$(__git_ps1 \"${CYAN}git:(${LCYAN}%s${CYAN})${RESET} \")"
     local TF_PROMPT="\$(__terraform_workspace \"${PURPLE}tf:(${LPURPLE}%s${PURPLE})${RESET} \")"
     local AWS_PROMPT="\$(__aws_profile \"${GREEN}aws:(${LGREEN}%s${GREEN})${RESET} \")"
+    local VENV_PROMPT="\$(__show_virtual_env \"${BLUE}venv:(${LBLUE}%s${BLUE})${RESET} \")"
 
-    local PROMPT=$'\n'"${HOST_PROMPT} ${DIR_PROMPT} ${GIT_PROMPT}${TF_PROMPT}${AWS_PROMPT}"$'\n'"${WHITE}$ ${RESET}"
+    local PROMPT=$'\n'"${HOST_PROMPT} ${DIR_PROMPT} ${GIT_PROMPT}${TF_PROMPT}${AWS_PROMPT}${VENV_PROMPT}"$'\n'"${WHITE}$ ${RESET}"
 
     PS1="${TERM_TITLE}${PROMPT}"
 }

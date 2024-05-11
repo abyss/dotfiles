@@ -5,8 +5,10 @@ cask "mono-mdk"
 cask "powershell"
 
 # General / Utility
+brew "bash" # Upgrade bash
 brew "coreutils" # Use GNU coreutils instead of BSD utils
 brew "git" # Use standard git, not Apple git
+brew "bash-completion@2"
 brew "trash"
 brew "thefuck"
 brew "jq"
@@ -21,7 +23,7 @@ brew "nvm"
 brew "go"
 brew "mysql-client"
 brew "pre-commit"
-brew "go-task"
+brew "go-task" # Taskfile.dev
 brew "gh" # GitHub CLI
 
 # Ops Tools
@@ -34,7 +36,6 @@ tap "tedsmitt/ecsgo"
 brew "ecsgo" # https://github.com/tedsmitt/ecsgo
 
 # Terraform
-tap "tofuutils/tap"
 brew "tenv"
 brew "terraform-docs"
 brew "tflint"
