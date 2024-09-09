@@ -1,11 +1,12 @@
 #!/bin/bash
+# shellcheck disable=SC1091,SC2088
 
 __install_dotfiles() {
   # Where the install script is located
-  local SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+  local SCRIPTPATH; SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
 
   # Load in Utility Helpers
-  source ${SCRIPTPATH}/util/helpers.sh
+  source "${SCRIPTPATH}"/util/helpers.sh
 
   header 'Creating ~/bin'
 
@@ -25,19 +26,19 @@ __install_dotfiles() {
 
   # symlink bin files
   header 'Creating all ~/bin symlinks'
-  ln -sfnv ${SCRIPTPATH}/bin/* ~/bin/
+  ln -sfnv "${SCRIPTPATH}"/bin/* ~/bin/
 
   # symlink bash files
   header 'Creating bash symlinks'
-  ln -sfnv ${SCRIPTPATH}/.bash_aliases ~/.bash_aliases
-  ln -sfnv ${SCRIPTPATH}/.bashrc ~/.bashrc
+  ln -sfnv "${SCRIPTPATH}"/.bash_aliases ~/.bash_aliases
+  ln -sfnv "${SCRIPTPATH}"/.bashrc ~/.bashrc
 
   # symlink vim files
   header 'Creating vim symlink'
   if [ -d ~/.vim ] && [ ! -L ~/.vim ]; then
     error "~/.vim exists and can't be symlinked. To use these settings, delete it and rerun this script."
   else
-    ln -sfnv ${SCRIPTPATH}/.vim ~/.vim
+    ln -sfnv "${SCRIPTPATH}"/.vim ~/.vim
   fi
 
   if [ -e ~/.vimrc ]; then
@@ -45,7 +46,7 @@ __install_dotfiles() {
   fi
 
   # symlink terraform files
-  ln -sfnv ${SCRIPTPATH}/.tflint.hcl ~/.tflint.hcl
+  ln -sfnv "${SCRIPTPATH}"/.tflint.hcl ~/.tflint.hcl
 
   # create ~/.system_aliases if it doesn't exist
   header 'Creating ~/.system_aliases'
@@ -59,14 +60,15 @@ __install_dotfiles() {
 
   # set git config --global options
   header 'git config options'
-  source ${SCRIPTPATH}/util/git-config.sh
+  source "${SCRIPTPATH}"/util/git-config.sh
 
   # symlink global gitignore file
-  ln -sfnv ${SCRIPTPATH}/linked.gitignore ~/.gitignore
+  ln -sfnv "${SCRIPTPATH}"/linked.gitignore_global ~/.gitignore_global
 
   # check if git config --global user.email / user.name are set
-  local GIT_USER_NAME=`git config --global user.name`
-  local GIT_USER_EMAIL=`git config --global user.email`
+  local GIT_USER_NAME; GIT_USER_NAME=$(git config --global user.name)
+  local GIT_USER_EMAIL; GIT_USER_EMAIL=$(git config --global user.email)
+
   if [ -z "$GIT_USER_NAME" ] || [ -z "$GIT_USER_EMAIL" ]; then
     warning 'You should run "git config --global user.name" and "git config --global user.email" to set your git user info'
   fi

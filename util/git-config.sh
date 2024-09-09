@@ -5,8 +5,8 @@ printf "git config --global core.autocrlf input\n"
 git config --global core.autocrlf input
 
 # Global .gitignore File provided by this repository
-printf "git config --global core.excludesfile ~/.gitignore\n"
-git config --global core.excludesfile ~/.gitignore
+printf "git config --global core.excludesfile ~/.gitignore_global\n"
+git config --global core.excludesfile ~/.gitignore_global
 
 # 'main' should be the default branch from now on
 printf "git config --global init.defaultBranch main\n"

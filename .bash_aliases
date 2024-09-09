@@ -44,11 +44,8 @@ alias tfip='tf init && tf plan'
 alias tfiu='tf init -upgrade'
 alias tgu='tf get -update'
 alias tfw='tf workspace'
-
-# calling this twice fixes some edge cases...
+alias tfsum='tf plan | grep -E "(will|must) be"'
 alias tflock='terraform providers lock && terraform providers lock -platform=windows_amd64 -platform=darwin_amd64 -platform=darwin_arm64 -platform=linux_amd64 -platform=linux_arm64'
-# This one is for projects with the `template` provider. Not supported on M1 Mac
-alias tflock-template='terraform providers lock && terraform providers lock -platform=windows_amd64 -platform=darwin_amd64 -platform=linux_amd64 -platform=linux_arm64'
 
 # M1 Terraform Helper
 alias m1-tf='m1-terraform-provider-helper install'
@@ -85,6 +82,7 @@ alias sso-tf-login='. ~/bin/sso-tf-login.sh'
 
 # clean up after terraform - these files get big over time!
 alias tf-clean='find . -name ".terraform" -type d -print0 | xargs -0 rm -rf'
+alias tf-lock-clean='find . -name ".terraform.lock.hcl" -type f -print0 | xargs -0 rm -f'
 alias ic-clean='find . -name ".infracost" -type d -print0 | xargs -0 rm -rf'
 
 # Kubernetes

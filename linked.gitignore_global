@@ -12,6 +12,10 @@
 # ltex configuration (spell checking)
 .vscode/ltex.*
 
+# Direnv stuff
+.direnv
+.envrc
+
 # Infracost
 .infracost/
 
