@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC1090,SC2034
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true

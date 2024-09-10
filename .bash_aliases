@@ -84,6 +84,7 @@ alias sso-tf-login='. ~/bin/sso-tf-login.sh'
 alias tf-clean='find . -name ".terraform" -type d -print0 | xargs -0 rm -rf'
 alias tf-lock-clean='find . -name ".terraform.lock.hcl" -type f -print0 | xargs -0 rm -f'
 alias ic-clean='find . -name ".infracost" -type d -print0 | xargs -0 rm -rf'
+alias folder-clean='find . -type d -empty -delete'
 
 # Kubernetes
 alias k='kubectl'
