@@ -74,6 +74,9 @@ tfwsa () {
   tf "$@" -var-file "$current_tf_workspace.tfvars"
 }
 
+# Count Terraform Projects
+alias tf-count='find . -type d ! -path '\*/.terraform/\*' ! -name ".terraform" -exec find {} -maxdepth 1 -name "*.tf" -print \; | xargs -I {} dirname {} | sort -u | wc -l'
+
 # tfdocs generate current folder
 alias tfdoc-gen='terraform-docs markdown document ./ >README.md'
 

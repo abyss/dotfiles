@@ -42,9 +42,12 @@ brew "tflint"
 brew "tfsec"
 
 # k8s
-tap "little-angry-clouds/homebrew-my-brews"
-brew "kbenv" # kubectl
-brew "helmenv" # helm
+# Current out of date, so not using these
+# tap "little-angry-clouds/homebrew-my-brews"
+# brew "kbenv" # kubectl
+# brew "helmenv" # helm
+brew "kubectl"
+brew "helm"
 
 brew "k9s"
 brew "kubectx", args: ["ignore-dependencies"] # kubectx and kubens
@@ -53,3 +56,8 @@ brew "kubectx", args: ["ignore-dependencies"] # kubectx and kubens
 brew "archey4"
 brew "cowsay"
 brew "fortune"
+brew "sl"
+
+tap "abyss/tools"
+brew "awsp"
+brew "tfws"
