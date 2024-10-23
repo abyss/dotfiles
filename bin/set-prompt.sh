@@ -34,10 +34,10 @@ __set_bash_ps1() {
     local USER='\u'
     local HOST='\h'
     local DIR='\w'
-    local TIME='\t'
 
     local TERM_TITLE="${TITLE_START}${USER}@${HOST} ${DIR}${TITLE_END}"
 
+    local TIME_PROMPT="[\D{%I:%M:%S %p}]" # [01:23:45 PM]
     local HOST_PROMPT="${LPURPLE}${USER}${PURPLE}@${HOST}${RESET}"
     local DIR_PROMPT="${YELLOW}${DIR}${RESET}"
 
@@ -48,7 +48,7 @@ __set_bash_ps1() {
     local AWS_PROMPT="\$(__aws_profile \"${GREEN}aws:(${LGREEN}%s${GREEN})${RESET} \")"
     local VENV_PROMPT="\$(__show_virtual_env \"${BLUE}venv:(${LBLUE}%s${BLUE})${RESET} \")"
 
-    local PROMPT=$'\n'"${HOST_PROMPT} ${DIR_PROMPT} ${GIT_PROMPT}${TF_PROMPT}${AWS_PROMPT}${VENV_PROMPT}"$'\n'"${WHITE}$ ${RESET}"
+    local PROMPT=$'\n'"${TIME_PROMPT} ${HOST_PROMPT} ${DIR_PROMPT} ${GIT_PROMPT}${TF_PROMPT}${AWS_PROMPT}${VENV_PROMPT}"$'\n'"${WHITE}$ ${RESET}"
 
     PS1="${TERM_TITLE}${PROMPT}"
 }
