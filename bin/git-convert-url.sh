@@ -10,7 +10,7 @@ fi
 
 echo $newURL
 read -p "Does this new url look fine? (y/N): " response
-if [[ "$response" == "y" ]]; then 
+if [[ "$response" == "y" ]]; then
     git remote set-url origin $newURL
     echo "Git remote updated."
 else
