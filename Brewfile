@@ -50,7 +50,7 @@ brew "kubectl"
 brew "helm"
 
 brew "k9s"
-brew "kubectx", args: ["ignore-dependencies"] # kubectx and kubens
+brew "danielfoehrkn/switch/switch" # Kubectx alternative
 
 # Fun
 brew "archey4"

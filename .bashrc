@@ -70,11 +70,7 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# Custom Additions
-
-export EDITOR="vim" # default to Vim
-
-source ~/bin/set-prompt.sh
+##### Custom Additions
 
 if [ "$OSTYPE" = "msys" ]; then
     # When using Windows, FORCE_COLOR (mostly for node-chalk)
@@ -125,3 +121,14 @@ if [ -f ~/.system_aliases ]; then
 fi
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH" # ~/bin and ~/.local/bin in path
+
+export EDITOR="vim" # default to Vim
+export TENV_AUTO_INSTALL=true
+
+source ~/bin/set-prompt.sh
+
+# danielfoehrkn/switch/switch - Kubectx alternative
+if [ -f /opt/homebrew/bin/switcher ]; then
+    # shellcheck disable=SC1090
+    source <(switcher init bash)
+fi

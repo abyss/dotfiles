@@ -18,10 +18,13 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
+# read and inspect the directories in your PATH
 alias lspath="tr ':' '\n' <<< \$PATH"
 
 # git
 alias git-changelog='git log --pretty="- %s"'
+alias git-clean-plan='git clean -xdffn'
+alias git-clean='git clean -xdff'
 
 # ansible trust-all-hosts
 alias ansible-hosts='ANSIBLE_HOST_KEY_CHECKING=false ansible all -m ping'
@@ -52,8 +55,9 @@ alias m1-tf='m1-terraform-provider-helper install'
 alias m1-lock='m1-terraform-provider-helper lockfile upgrade'
 
 # Find Terraform Local States
-alias tf-local-state='find . -type f -name "terraform.tfstate" -not -path "*/.terraform/*"'
+alias tf-find-local-state='find . -type f -name "terraform.tfstate" -not -path "*/.terraform/*"'
 
+alias fortune-fail='fortune ~/Code/abyss/fortune-failures/failures'
 # Version file requirement when using TF
 tf () {
   if [ -f .opentofu-version ]; then
@@ -91,6 +95,7 @@ alias folder-clean='find . -type d -empty -delete'
 
 # Kubernetes
 alias k='kubectl'
+alias kubectx='switch'
 
 # Utility
 alias ungron="gron --ungron"
