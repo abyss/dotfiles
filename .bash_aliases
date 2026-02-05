@@ -58,6 +58,7 @@ alias m1-lock='m1-terraform-provider-helper lockfile upgrade'
 alias tf-find-local-state='find . -type f -name "terraform.tfstate" -not -path "*/.terraform/*"'
 
 alias fortune-fail='fortune ~/Code/abyss/fortune-failures/failures'
+
 # Version file requirement when using TF
 tf () {
   if [ -f .opentofu-version ]; then
