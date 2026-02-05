@@ -28,25 +28,34 @@ __install_dotfiles() {
   header 'Creating all ~/bin symlinks'
   ln -sfnv "${SCRIPTPATH}"/bin/* ~/bin/
 
-  # symlink bash files
-  header 'Creating bash symlinks'
-  ln -sfnv "${SCRIPTPATH}"/.bash_aliases ~/.bash_aliases
-  ln -sfnv "${SCRIPTPATH}"/.bashrc ~/.bashrc
+  # symlink dotfiles from home/
+  header 'Creating home dotfile symlinks'
+  shopt -s dotglob  # Include hidden files in glob
+  for item in "${SCRIPTPATH}"/home/*; do
+    local basename; basename=$(basename "$item")
 
-  # symlink vim files
-  header 'Creating vim symlink'
-  if [ -d ~/.vim ] && [ ! -L ~/.vim ]; then
-    error "~/.vim exists and can't be symlinked. To use these settings, delete it and rerun this script."
-  else
-    ln -sfnv "${SCRIPTPATH}"/.vim ~/.vim
-  fi
+    # Skip if doesn't exist (empty glob)
+    [ -e "$item" ] || continue
 
+    if [ -f "$item" ]; then
+      # Regular file - symlink it
+      ln -sfnv "$item" ~/"$basename"
+    elif [ -d "$item" ]; then
+      # Directory - only handle .vim for now
+      if [ "$basename" = ".vim" ]; then
+        if [ -d ~/.vim ] && [ ! -L ~/.vim ]; then
+          error "~/.vim exists and can't be symlinked. To use these settings, delete it and rerun this script."
+        else
+          ln -sfnv "$item" ~/.vim
+        fi
+      fi
+    fi
+  done
+
+  # Check for .vimrc conflict
   if [ -e ~/.vimrc ]; then
     warning '~/.vimrc exists and will take precedence. To use these settings, delete it.'
   fi
-
-  # symlink terraform files
-  ln -sfnv "${SCRIPTPATH}"/.tflint.hcl ~/.tflint.hcl
 
   # create ~/.system_aliases if it doesn't exist
   header 'Creating ~/.system_aliases'
@@ -61,9 +70,6 @@ __install_dotfiles() {
   # set git config --global options
   header 'git config options'
   source "${SCRIPTPATH}"/util/git-config.sh
-
-  # symlink global gitignore file
-  ln -sfnv "${SCRIPTPATH}"/linked.gitignore_global ~/.gitignore_global
 
   # check if git config --global user.email / user.name are set
   local GIT_USER_NAME; GIT_USER_NAME=$(git config --global user.name)

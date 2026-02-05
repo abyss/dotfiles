@@ -1,2 +1,5 @@
 # Ignore brewfile lock - don't need to track versions for dotfiles, always want newest
 Brewfile.lock.json
+
+# macOS system files
+.DS_Store
