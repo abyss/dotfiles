@@ -57,35 +57,31 @@ brew "aws-iam-authenticator"    # AWS IAM authenticator for Kubernetes
 brew "aws-sam-cli"              # AWS Serverless Application Model CLI
 brew "eksctl"                   # EKS cluster management tool
 
-tap "tedsmitt/ecsgo"
-brew "ecsgo"    #  Connect to ECS using the ExecuteCommand API
+brew "tedsmitt/ecsgo/ecsgo"    #  Connect to ECS using the ExecuteCommand API
 
-tap "abyss/tools"
-brew "awsp"    # AWS profile switcher
-brew "tfws"    # Terraform workspace switcher
+brew "abyss/tools/plan"    # Plan Journal CLI
+brew "abyss/tools/awsp"    # AWS profile switcher
+brew "abyss/tools/tfws"    # Terraform workspace switcher
 
 # Cloud & Infrastructure - Kubernetes
 brew "kubectl"    # Kubernetes command-line tool
 brew "helm"       # Kubernetes package manager
 brew "k9s"        # Kubernetes TUI
 
-tap "danielfoehrkn/switch"
-brew "switch"    # Kubernetes context switcher (kubectx alternative)
+brew "danielfoehrkn/switch/switch"    # Kubernetes context switcher (kubectx alternative)
 
 # Infrastructure as Code - OpenTofu & Terraform
 brew "tenv"              # OpenTofu/Terraform/Terragrunt version manager
 brew "terraform-docs"    # Generate Terraform documentation
 brew "tflint"            # Terraform linter
 
-tap "minamijoyo/tfupdate"
-brew "tfupdate"    # Update Terraform version constraints
+brew "minamijoyo/tfupdate/tfupdate"    # Update Terraform version constraints
 
 # Infrastructure as Code - Ansible
 brew "ansible"    # Config management
 
 # Security & Scanning
-tap "trufflesecurity/trufflehog"
-brew "trufflehog"    # Find secrets in code repositories
+brew "trufflesecurity/trufflehog/trufflehog"    # Find secrets in code repositories
 
 # Network & Download Tools
 brew "wget"    # Internet file retriever
