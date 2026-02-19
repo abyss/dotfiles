@@ -6,6 +6,9 @@
 .gitditch/
 # .marked
 
+# Local only markdown files
+*.local.md
+
 # Vim swap files
 .*.swp
 
@@ -69,3 +72,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Claude
+.claude/settings.local.json
