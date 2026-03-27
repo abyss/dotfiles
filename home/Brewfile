@@ -36,6 +36,8 @@ brew "fzf"          # Fuzzy finder for command line
 brew "git"           # Use standard git, not Apple git
 brew "gh"            # GitHub CLI
 brew "pre-commit"    # Git pre-commit hook framework
+brew "sem-cli"       # Semantic version control CLI
+brew "gitversion"    # Generates Semantic Version based on Git history
 
 # Programming Languages & Runtimes
 brew "go"     # Go programming language
@@ -57,6 +59,7 @@ brew "aws-iam-authenticator"    # AWS IAM authenticator for Kubernetes
 brew "aws-sam-cli"              # AWS Serverless Application Model CLI
 brew "eksctl"                   # EKS cluster management tool
 
+brew "e1s"                     # K9s for ECS (Easily Manage AWS ECS Resources in Terminal)
 brew "tedsmitt/ecsgo/ecsgo"    #  Connect to ECS using the ExecuteCommand API
 
 brew "abyss/tools/plan"    # Plan Journal CLI

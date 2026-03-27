@@ -43,8 +43,8 @@ if [ -x /usr/bin/dircolors ]; then
     # shellcheck disable=SC2015
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    # alias dir='dir --color=auto'
+    # alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -52,7 +52,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+# export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -85,14 +85,6 @@ if [ "$OSTYPE" = "msys" ]; then
     alias python='winpty python.exe'
     alias py='winpty py.exe'
     alias php='winpty php.exe'
-fi
-
-if [ -s "/usr/local/bin/brew" ]; then
-    # Mac OSX Intel
-    export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-    export PATH="$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH"
-    export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
-    export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 fi
 
 if [ -s "/opt/homebrew/bin/brew" ]; then

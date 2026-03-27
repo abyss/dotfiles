@@ -1,6 +1,7 @@
 # TFLint Rules for Root Module / Project
 config {
   call_module_type = "all" # Module inspection
+
   format = "compact"
 }
 

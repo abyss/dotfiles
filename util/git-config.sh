@@ -16,6 +16,10 @@ git config --global init.defaultBranch main
 printf "git config --global pull.ff only\n"
 git config --global pull.ff only
 
+# 'git push' to automatically set the upstream branch on first push
+printf "git config --global push.autoSetupRemote true\n"
+git config --global push.autoSetupRemote true
+
 # Git Aliases
 printf "Configuring git aliases:\n"
 printf "  - co → checkout\n"
