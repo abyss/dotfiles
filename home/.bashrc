@@ -11,16 +11,20 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# don't save lines starting with a space, and drop earlier copies of a
+# repeated command (erasedups supersedes ignoredups). See bash(1) for more.
+HISTCONTROL=ignorespace:erasedups
+
+# don't record navigation/listing noise. Each pattern must match the whole
+# line, hence the separate 'ls *' alongside 'ls'.
+HISTIGNORE='ls:ls *:ll:la:lll:pwd:clear:history:exit:..:...:....:.....:.2:.3:.4:.5:brc'
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# unlimited history: -1 keeps every command and never truncates the file
+HISTSIZE=-1
+HISTFILESIZE=-1
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
