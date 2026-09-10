@@ -110,7 +110,8 @@ brew "ansible"    # Config management
 brew "trufflesecurity/trufflehog/trufflehog"    # Find secrets in code repositories
 
 # Network & Download Tools
-brew "wget"    # Internet file retriever
+brew "wget"      # Internet file retriever
+brew "yt-dlp"    # YouTube/video downloader and metadata/subtitle extractor
 
 # Fun & Entertainment
 brew "archey4"    # System information tool with Apple logo
