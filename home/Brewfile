@@ -31,6 +31,7 @@ brew "thefuck"              # Correct previous console command
 brew "tldr"                 # Simplified man pages
 brew "trash"                # Move files to trash instead of rm
 brew "watch"                # Execute command periodically watching for changes
+brew "zoxide"               # Smarter cd command with ranking and fuzzy matching
 
 # File & Text Processing
 brew "coreutils"    # GNU coreutils (better than BSD defaults)
