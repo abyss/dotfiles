@@ -1,9 +1,7 @@
 # shellcheck shell=bash
-# shellcheck disable=SC1090,SC1091,SC2155
+# shellcheck disable=SC1090,SC1091
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 case $- in
@@ -30,15 +28,11 @@ HISTFILESIZE=-1
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if command -v dircolors >/dev/null; then
     # shellcheck disable=SC2015
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -46,18 +40,9 @@ if [ -x /usr/bin/dircolors ]; then
     # alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-# export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+# Git Tracked Aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -86,28 +71,35 @@ if [ "$OSTYPE" = "msys" ]; then
     alias php='winpty php.exe'
 fi
 
-if [ -s "/opt/homebrew/bin/brew" ]; then
-    # Mac OSX Arm
-    # shellcheck disable=SC2155
+# Homebrew, if installed: macOS (Apple Silicon) or Linuxbrew.
+# shellenv puts brew on PATH, so it has to run before brew is callable.
+if [ -x /opt/homebrew/bin/brew ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-    export PATH="$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH"
-    export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
-    export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
-    export BASH_COMPLETION_COMPAT_DIR="/opt/homebrew/etc/bash_completion.d"
-    [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+if command -v brew >/dev/null; then
+    # Resolve once; every 'brew --prefix' call spawns a subprocess.
+    BREW_PREFIX="$(brew --prefix)"
+
+    # GNU userland ahead of the system defaults
+    export PATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="$BREW_PREFIX/opt/gawk/libexec/gnubin:$PATH"
+    export PATH="$BREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
+    export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+
+    export BASH_COMPLETION_COMPAT_DIR="$BREW_PREFIX/etc/bash_completion.d"
+    [[ -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-if [ "$OSTYPE" != "msys" ]; then
-    # Homebrew NVM Versions
-    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+if [ -n "$BREW_PREFIX" ]; then
+    # Homebrew-managed nvm
+    [ -s "$BREW_PREFIX/opt/nvm/nvm.sh" ] && . "$BREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "$BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && . "$BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 
 # System Specific, Non-Git Tracked Aliases
@@ -120,11 +112,10 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH" # ~/bin and ~/.local/bin in path
 export EDITOR="vim" # default to Vim
 export TENV_AUTO_INSTALL=true
 
-source ~/bin/set-prompt.sh
+[ -r ~/bin/set-prompt.sh ] && source ~/bin/set-prompt.sh
 
 # danielfoehrkn/switch/switch - Kubectx alternative
-if [ -f /opt/homebrew/bin/switcher ]; then
-    # shellcheck disable=SC1090
+if command -v switcher >/dev/null; then
     source <(switcher init bash)
 fi
 
