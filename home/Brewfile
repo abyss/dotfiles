@@ -118,3 +118,9 @@ brew "archey4"    # System information tool with Apple logo
 brew "cowsay"     # Configurable talking cow
 brew "fortune"    # Random quotes
 brew "sl"         # Steam locomotive (typo of ls)
+
+# CTFing
+# brew "pngcheck"    # Validate and inspect PNG files
+# brew "exiftool"    # Read and write metadata in files
+# brew "steghide"    # Steganography tool
+# brew "binwalk"     # Analyze binary files for embedded data
