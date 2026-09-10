@@ -73,3 +73,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Playwright cli
+.playwright-cli/
