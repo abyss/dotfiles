@@ -52,6 +52,7 @@ brew "git"           # Use standard git, not Apple git
 brew "gh"            # GitHub CLI
 brew "pre-commit"    # Git pre-commit hook framework
 brew "prek"          # A Git hook manager written in Rust, designed as a drop-in alternative to pre-commit
+brew "shellcheck"    # Shell script linter/static analysis tool
 brew "sem-cli"       # Semantic version control CLI
 brew "gitversion"    # Generates Semantic Version based on Git history
 
