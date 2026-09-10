@@ -57,17 +57,26 @@ alias m1-lock='m1-terraform-provider-helper lockfile upgrade'
 # Find Terraform Local States
 alias tf-find-local-state='find . -type f -name "terraform.tfstate" -not -path "*/.terraform/*"'
 
-# Version file requirement when using TF
+# Version file requirement when using TF.
+# Walks up the directory tree (like tenv) so the version file can live in any
+# ancestor; nearest directory wins, .opentofu-version taking precedence.
 tf () {
-  if [ -f .opentofu-version ]; then
-    tofu "$@"
-  elif [ -f .terraform-version ]; then
-    terraform "$@"
-  else
-    fortune failures
-    echo "(Missing .opentofu-version or .terraform-version file)"
-    (exit 1)
-  fi
+  local dir
+  dir=$(pwd)
+  while [ -n "$dir" ]; do
+    if [ -f "$dir/.opentofu-version" ]; then
+      tofu "$@"
+      return $?
+    elif [ -f "$dir/.terraform-version" ]; then
+      terraform "$@"
+      return $?
+    fi
+    [ "$dir" = "/" ] && break
+    dir=$(dirname "$dir")
+  done
+  fortune failures
+  echo "(Missing .opentofu-version or .terraform-version file in this or any parent directory)"
+  (exit 1)
 }
 
 # terraform workspace apply with var-file of same name
