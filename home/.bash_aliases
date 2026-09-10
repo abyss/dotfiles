@@ -107,3 +107,6 @@ alias kubectx='switch'
 
 # Utility
 alias ungron="gron --ungron"
+
+# Search shell history
+alias hg='history | grep'
