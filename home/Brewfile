@@ -17,10 +17,11 @@ cask "mono-mdk"              # .NET framework
 cask "powershell"            # PowerShell for macOS
 
 # GenAI Tooling
-cask "claude-code"    # Claude Code
-cask "codex"          # OpenAI Codex
-cask "copilot-cli"    # GitHub Copilot for CLI
-cask "kiro-cli"       # AWS Kiro CLI
+cask "claude-code@latest"    # Claude Code
+cask "codex"                 # OpenAI Codex
+cask "kiro-cli"              # AWS Kiro CLI
+tap "can1357/tap"
+brew "can1357/tap/omp"       # Oh My Pi - Agent Harness
 
 # Shell & Terminal Utilities
 brew "bash"                 # Upgrade bash from macOS default
