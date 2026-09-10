@@ -6,7 +6,7 @@ __show_virtual_env() {
 
   if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
     # shellcheck disable=SC2059
-    printf "$1" "$(basename $VIRTUAL_ENV)"
+    printf "$1" "$(basename "$VIRTUAL_ENV")"
   fi
 
   return $exit
