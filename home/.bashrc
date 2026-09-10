@@ -1,4 +1,3 @@
-### Modified Ubuntu .bashrc 2019-04-09
 # shellcheck shell=bash
 # shellcheck disable=SC1090,SC1091,SC2155
 
