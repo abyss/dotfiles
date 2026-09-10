@@ -1,3 +1,13 @@
+# Third-party taps require trust before `brew bundle` will install them.
+# Run once after a fresh clone:
+#   brew trust abyss/tools
+#   brew trust --formula tedsmitt/ecsgo/ecsgo
+#   brew trust --formula danielfoehrkn/switch/switch
+#   brew trust --formula danielfoehrkn/switch/switcher
+#   brew trust --formula minamijoyo/tfupdate/tfupdate
+#   brew trust --formula trufflesecurity/trufflehog/trufflehog
+#   brew trust --formula can1357/tap/omp
+
 # Utility Applications
 cask "visual-studio-code"    # Visual Studio Code Editor
 cask "iterm2"                # Terminal emulator
@@ -61,8 +71,10 @@ brew "aws-sam-cli"              # AWS Serverless Application Model CLI
 brew "eksctl"                   # EKS cluster management tool
 
 brew "e1s"                     # K9s for ECS (Easily Manage AWS ECS Resources in Terminal)
+tap "tedsmitt/ecsgo"
 brew "tedsmitt/ecsgo/ecsgo"    #  Connect to ECS using the ExecuteCommand API
 
+tap "abyss/tools"
 brew "abyss/tools/plan"      # Plan Journal CLI
 brew "abyss/tools/awsp"      # AWS profile switcher
 brew "abyss/tools/tfws"      # Terraform workspace switcher
