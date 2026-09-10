@@ -34,6 +34,8 @@ brew "watch"                # Execute command periodically watching for changes
 brew "zoxide"               # Smarter cd command with ranking and fuzzy matching
 
 # File & Text Processing
+brew "prettier"     # Code/markdown formatter
+brew "pandoc"       # Universal document converter
 brew "coreutils"    # GNU coreutils (better than BSD defaults)
 brew "bat"          # Better cat with syntax highlighting
 brew "grep"         # GNU grep
