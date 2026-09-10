@@ -86,6 +86,9 @@ brew "abyss/tools/awsp"      # AWS profile switcher
 brew "abyss/tools/tfws"      # Terraform workspace switcher
 brew "abyss/tools/tfwand"    # OpenTofu/Terraform Utility Toolkit
 
+# Cloud & Infrastructure - Azure
+brew "azure-cli"    # Azure command line interface
+
 # Cloud & Infrastructure - Kubernetes
 brew "kubectl"    # Kubernetes command-line tool
 brew "helm"       # Kubernetes package manager
