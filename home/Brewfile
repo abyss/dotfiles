@@ -11,7 +11,8 @@
 # Utility Applications
 cask "visual-studio-code"    # Visual Studio Code Editor
 cask "iterm2"                # Terminal emulator
-cask "alt-tab"               # Windows-style alt-tab switcher
+cask "ghostty"               # Cross-platform terminal emulator
+cask "bettercmdtab"          # Better command tab for macOS
 cask "mono-mdk"              # .NET framework
 cask "powershell"            # PowerShell for macOS
 
