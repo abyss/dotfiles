@@ -95,6 +95,9 @@ alias tfdoc-gen='terraform-docs markdown document ./ >README.md'
 # Authenticate old versions of TF with AWS SSO
 alias sso-legacy-tf-login='. ~/bin/sso-legacy-tf-login.sh'
 
+# Mint a short-lived Cloudflare/R2 credential (sources into current shell)
+alias cf-mint-token='. ~/bin/cf-mint-token.sh'
+
 # clean up after terraform - these files get big over time!
 alias tf-clean='find . -name ".terraform" -type d -print0 | xargs -0 rm -rf'
 alias tf-lock-clean='find . -name ".terraform.lock.hcl" -type f -print0 | xargs -0 rm -f'
